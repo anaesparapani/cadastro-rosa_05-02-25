@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Person from "@mui/icons-material/Person";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
@@ -37,7 +37,7 @@ function Cadastro() {
         }}
       >
         <Avatar sx={{ margin: 1, backgroundColor: "#FF6795" }}>
-          <LockOutlinedIcon />
+          <Person />
         </Avatar>
         <Typography component="h1" variant="h5">
           Cadastre-se
