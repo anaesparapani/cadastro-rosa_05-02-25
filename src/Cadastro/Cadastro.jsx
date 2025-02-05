@@ -23,7 +23,7 @@ function Cadastro() {
 
   const handleSubmit = (event) =>{
     event.preventDefault();
-    alert("Email:"+user.email+" "+"Senha:"+user.password+ ""+"Age:"+user.age+""+"Name:"+user.name)
+    alert("Email:"+user.email+"    "+"Senha:"+user.password+ "    "+"Age:"+user.age+"     "+"Name:"+user.name)
   }
 
   return (
