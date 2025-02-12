@@ -7,13 +7,15 @@ import Person from "@mui/icons-material/Person";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
+import api from "../axios/axios"
 
 function Cadastro() {
   const [user, setUser] = useState({
+    name: "",
     email: "",
     password: "",
-    age: "",
-    name: "",
+    data_nascimento: "",
+    cpf: ""
   });
 
   const onChange = (event) => {
@@ -23,9 +25,20 @@ function Cadastro() {
 
   const handleSubmit = (event) =>{
     event.preventDefault();
-    alert("Email:"+user.email+"    "+"Senha:"+user.password+ "    "+"Age:"+user.age+"     "+"Name:"+user.name)
-  }
+    cadastro();
+}
 
+async function cadastro(){ //await - ele aguarda "interpreta"
+  await api.postCadastro(user).then( //then se no caso for sucesso
+      (response) =>{
+          alert(response.data.message) //resposta que vieram da api
+      },
+      (error)=>{
+          console.log(error)
+          alert(error.response.data.error) //resposta de erro que vieram da api
+      }
+  )  
+}
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -78,14 +91,25 @@ function Cadastro() {
           <TextField
             required
             fullWidth
-            id="age"
-            label="Idade"
-            name="age"
+            id="data_nascimento"
+            name="data_nascimento"
             margin="normal"
-            type="age"
-            value={user.age}
+            type="date"
+            value={user.data_nascimento}
             onChange={onChange}
           />
+          <TextField
+            required
+            fullWidth
+            id="cpf"
+            label="CPF"
+            name="cpf"
+            margin="normal"
+            type="number"
+            value={user.cpf}
+            onChange={onChange}
+          />
+          
           <Button
             sx={{
               marginTop: 3,
