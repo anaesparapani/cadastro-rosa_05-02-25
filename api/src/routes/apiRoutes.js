@@ -12,7 +12,7 @@ const IngressoController = require('../controllers/ingressoController');
  router.put('/user/', userController.updateUser);
  router.delete('/user/:cpf', userController.deleteUser);
  router.post('/login', userController.loginUser);
- router.post('/cadastro', userController.cadastroUser);
+ //router.post('/cadastro', userController.cadastroUser);
 
  //rotas organizadorController
 router.post('/organizador', organizadorController.createOrganizador);

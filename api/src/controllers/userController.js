@@ -45,7 +45,7 @@ module.exports = class userController {
       return res.status(400).json({ error: "Email e senha são obrigatórios" });
     }
 
-    const user = users.find(
+    const user = user.find(
       (user) => user.email === email && user.password === password
     );
     if (!user) {
